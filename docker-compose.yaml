@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: 'postgres:15'
+    environment:
+      - 'POSTGRES_DB=library_db'
+      - 'POSTGRES_PASSWORD=password'
+      - 'POSTGRES_USER=username'
+    ports:
+      - '5432:5432'
+  app:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - '8080:8080'
