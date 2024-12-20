@@ -1,5 +1,6 @@
 package com.library.libraryapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class Author {
 
     private String name;
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY)
     private List<Book> books = new ArrayList<>();
 
