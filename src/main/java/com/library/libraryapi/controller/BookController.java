@@ -25,19 +25,19 @@ public class BookController {
         return bookService.getAllBooks(pageable);
     }
 
-    @PutMapping("update")
+    @PutMapping("/update")
     public ResponseEntity<?> updateBook(@RequestBody BookUpdateDto book) {
         bookService.updateBook(book);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @PostMapping("create")
+    @PostMapping("/create")
     public ResponseEntity<?> createBook(@RequestBody BookCreateDto book) {
         bookService.createBook(book);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @DeleteMapping("delete")
+    @DeleteMapping("/delete")
     public ResponseEntity<?> deleteBook(@RequestParam Long id) {
         bookService.deleteBook(id);
         return ResponseEntity.status(HttpStatus.OK).build();
